@@ -8,6 +8,8 @@ import java.util.Arrays;
 public class missingAndRepeatingNumber {
     public static int[] find(int[] arr){
         
+        /*
+        //better
         int temp[]=new int[2];
         int hash[]=new int[arr.length+1];
 
@@ -26,6 +28,36 @@ public class missingAndRepeatingNumber {
             }    
         }
         return temp;
+        */
+
+        //optimal
+
+        int temp[]=new int[2];
+        int n=arr.length;
+
+        int sn=(n*(n+1))/2;
+        int s2n=(n*(n+1)*((2*n)+1))/6;
+
+        int s=0;
+        int s2=0;
+
+        for(int i=0;i<arr.length;i++){
+            s+=arr[i];
+            s2+=arr[i]*arr[i];
+        }
+
+        int val1=s-sn;//x-y
+        int val2=s2-s2n;
+        val2=val2/val1;//x+y
+
+        int x=(val1+val2)/2;//repeating number
+        int y=val2-x;//missing number
+
+        temp[0]=x;
+        temp[1]=y;
+
+        return temp;
+
     }
 
     public static void main(String[] args) {
