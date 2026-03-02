@@ -1,5 +1,21 @@
-package Practice;
+//optimal
+public class HCF {
+    public static void main(String[] args){
 
+        int num=48;
+        int num2=18;
+    
+        while(num2>0){
+            int rem=num%num2;
+            num=num2;
+            num2=rem;
+        }
+        System.out.println(num);
+    }
+}
+
+/*
+//brute
 public class HCF {
     public static int findHCF(int x,int y){
         int largest=Math.max(x, y);
@@ -19,3 +35,5 @@ public class HCF {
         System.out.println(HCF);
     }
 }
+
+*/
